@@ -14,7 +14,7 @@ export class EmailController {
     const mail = {
       to: data.emailAddress,
       subject: 'PDI Microservice',
-      from: 'laisadnevescosta@gmail.com',
+      from: process.env.SENDER_ADDRESS,
       text: data.content,
     };
     return await this.sendgridService.send(mail);
